@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(169, 213, 103);
+}
+
+#container {
+    margin: 20px auto;
+    font-size: 25px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    line-height: 30px;
+    font-weight: 600;
+}
+
+span {
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: green;
+}
+
+.decorate {
+    font-weight: 400;
+    font-style: oblique;
+}
