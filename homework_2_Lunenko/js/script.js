@@ -18,7 +18,7 @@ emaylMy = `not valid email <b>${personalEmail}</b> (symbol @ not exist)`;
 emailMyFirst = `not valid email <b>${personalEmail}</b> (symbol @ find in first place)`;
 emailMyLast = `not valid email <b>${personalEmail}</b> (symbol @ find in last place)`;
 
-if (personalEmail.indexOf(`@`) < 0) {
+if (personalEmail.indexOf(`@`) < 0) { 
     document.write(`
         <h1>Personal information</h1>
             <ul>
@@ -38,7 +38,7 @@ if (personalEmail.indexOf(`@`) < 0) {
                 <li>Age: ${myAge}</li>
             <ul>
     `);
-} else if (personalEmail.indexOf(`@`) == emailLength - 1) {
+} else if (personalEmail.indexOf(`@`) ==                                                                                                         - 1) {
     document.write(`
         <h1>Personal information</h1>
             <ul>
