@@ -1,39 +1,35 @@
-debugger;
+// debugger;
+sum = 0;
 a = parseInt(prompt("Сколько будет 2+2?").replaceAll(" ", ""));
-firstNumb = 0;
 if (a == 4) {
-    a = firstNumb + 10; 
-} else {
-    a = firstNumb - 0; 
-}
-console.log(a);
-b = prompt("Солнце встает на востоке?").replaceAll(" ", "");
-if (b === "Да") {
-    a = a + 10;
+    sum += 10;
 } 
-else {
-    a = a - 0;
-}
-console.log(a);
-с = prompt("Сколько будет 5 / 0?").replaceAll(" ", "");
-if (с === "Нельзя" || c === "Ничего") {
-    a = a + 10;
-} else {
-    a = a - 0;
-}
-console.log(a);
+console.log(sum);
+b = prompt("Солнце встает на востоке?").replaceAll(" ", "");
+if (b.toLowerCase() === "да") {
+    sum += 10;
+} 
+console.log(sum);
+// Variant one
+str = prompt("Сколько будет 5 / 0?").replaceAll(" ", "");
+if (str.toLowerCase() === "нельзя") {
+    sum += 10;
+} 
+console.log(sum);
+//Variant two
+// str = prompt("Сколько будет 5 / 0?");
+// if (isNaN(str)) {
+//     sum += 10;
+// }
+// console.log(sum);
 d = prompt("Какого цвета небо?").replaceAll(" ", "");
-if (d === "Голубой") {
-    a = a + 10;
-} else {
-    a = a - 0;
+if (d.toLowerCase() === "голубой") {
+    sum += 10;
 }
-console.log(a);
-f = parseInt(prompt("Какой правильный ответ на главный вопрос жизни, вселенной и всего такого?").replaceAll("", " "));
+console.log(sum);
+f = parseInt(prompt("Какой правильный ответ на главный вопрос жизни, вселенной и всего такого?").replaceAll(" ", ""));
 if (f == 42) {
-    a = a + 10;
-} else {
-    a = a - 0;
+    sum += 10;
 }
-console.log(a);
-alert(a);
+console.log(sum);
+alert(sum);
