@@ -87,48 +87,17 @@ do {
 //Final price
 totalPrice = productPrice * coef * numb;
 
-img_1 = "img/vegetables/cabbage.svg";
-img_2 = "img/vegetables/avocado.svg";
-img_3 = "img/vegetables/tomato.svg";
-img_4 = "img/fruits/coconut.svg";
-img_5 = "img/fruits/grapes.svg";
-img_6 = "img/fruits/raspberry.svg";
+//Variant_1
 
-switch (nameOfProduct) {
-    case "cabbage":
-        document.write(`<div class = "img">
-        <img src = ${img_1}>
-        </div>`);
-        break;
-    case "avocado":
-        document.write(`<div class = "img">
-        <img src = ${img_2}>
-        </div>`);
-        break;
-    case "tomato":
-        document.write(`<div class = "img">
-        <img src = ${img_3}>
-        </div>`);
-        break;
-    case "coconut":
-        document.write(`<div class = "img">
-        <img src = ${img_4}>
-        </div>`);
-        break;
-    case "grapes":
-        document.write(`<div class = "img">
-        <img src = ${img_5}>
-        </div>`);
-        break;
-    case "raspberry":
-        document.write(`<div class = "img">
-        <img src = ${img_6}>
-        </div>`);
-        break;
-}
+    if (kindOfProduct === "vegetables") {
+        productImg = `<img src="img/vegetables/${nameOfProduct}.svg" alt="${nameOfProduct}" </img>`;
+    } else {
+        productImg = `<img src="img/fruits/${nameOfProduct}.svg" alt="${nameOfProduct}" </img>`;
+    }
 
     document.write(`
     <div class = "text">
+    ${productImg}
     <p>Selected period: <b>${season}.</b></p>
     <p>Selected category: <b>${kindOfProduct}.</b></p>
     <p>Selected product: <b>${nameOfProduct}.</b></p>
@@ -136,5 +105,44 @@ switch (nameOfProduct) {
     <p>Total price:<b>${totalPrice}UAH.</b></p>
     </div>`);
 
+//Variant_2
+// img_1 = "img/vegetables/cabbage.svg";
+// img_2 = "img/vegetables/avocado.svg";
+// img_3 = "img/vegetables/tomato.svg";
+// img_4 = "img/fruits/coconut.svg";
+// img_5 = "img/fruits/grapes.svg";
+// img_6 = "img/fruits/raspberry.svg";
 
+// switch (nameOfProduct) {
+//     case "cabbage":
+//         document.write(`<div class = "img">
+//         <img src = ${img_1}>
+//         </div>`);
+//         break;
+//     case "avocado":
+//         document.write(`<div class = "img">
+//         <img src = ${img_2}>
+//         </div>`);
+//         break;
+//     case "tomato":
+//         document.write(`<div class = "img">
+//         <img src = ${img_3}>
+//         </div>`);
+//         break;
+//     case "coconut":
+//         document.write(`<div class = "img">
+//         <img src = ${img_4}>
+//         </div>`);
+//         break;
+//     case "grapes":
+//         document.write(`<div class = "img">
+//         <img src = ${img_5}>
+//         </div>`);
+//         break;
+//     case "raspberry":
+//         document.write(`<div class = "img">
+//         <img src = ${img_6}>
+//         </div>`);
+//         break;
+// }
             
