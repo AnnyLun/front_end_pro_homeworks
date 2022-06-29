@@ -3,27 +3,28 @@
 // Если аргумент c передан и он является функцией, то он выполняется после вызова функции sum, и в качестве входящего значение принимает результат работы функции sum.
 // Функция main должна возвращать результат функции аргумента c, если он есть, либо результат функции sum.
 
-
-function main (a = 2, b = 3, c) { 
- 
+function main(a = 2, b = 3, c) { 
   debugger;
+  let total = getSum(a, b)
   if (typeof c === 'function') {
-    let total = sum(a, b)
-    return mathPow (total);
+    return c (total);
   } else {
-    return sum(total);
-  }
-  function sum (a, b) { 
-    debugger;
-      return a + b; 
+    return total;
   }
 }
 
-function mathPow (x) {
+function getSum(a, b) { 
+  debugger;
+    return a + b; 
+}
+
+function getMathPow(x) {
   debugger;
   return Math.pow(x, 2);
 }
 
-console.log(main(10, 5, mathPow));
+console.log(main(10, 5, getMathPow));
+
+
 
 

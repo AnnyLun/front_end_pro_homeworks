@@ -8,7 +8,7 @@ function getSum(x) {
   debugger;
   let sum = 0;
   for (i = 0; i < x.length; i++) {
-    if (!isNaN(x[i]) ) {
+    if (typeof x[i] === "number") {
      sum += x[i];
     }
   }
@@ -20,9 +20,8 @@ function outputArr(arr1, arr2) {
 let sum1 = getSum(arr1);
 let sum2 = getSum(arr2);
 
-if (sum1 > sum2) return arr1
-else 
-  return arr2
+if (sum1 > sum2) return arr1;
+  return arr2;
 
 // return sum1 > sum2 ?  arr1: arr2;
 }
