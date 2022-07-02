@@ -17,43 +17,34 @@ let tuesday = [
 ];
 
 
-let newArr = []
-monday.map(
-  function(array) {
-// debugger
-  return newArr.push(array);
-})
+let newArr = monday.concat(tuesday)
 
-tuesday.map(
-  function(array) {
-// debugger
-  return newArr.push(array);
-})
-
-newArr.map(
+.map(
   function(num) {
-    // debugger
-    return num[1] /= 60
+    debugger
+    num[1] /= 60; 
+    return num;
   }
 )
 
-let tascsMoreTwoHours = newArr.filter(
-  function(num){
-    // debugger
-    return num[1] > 2
+.filter(
+  function(item) {
+    debugger
+    item[1] > 2;
+    return item;
   }
 )
 
-tascsMoreTwoHours.map(
-  function(addTuskResult) {
-    // debugger
-    addTuskResult[2] = addTuskResult[1] * amount;
-
-    return addTuskResult[2];
+.map(
+  function(item) {
+    debugger
+    let addTuskResult = item[1] * amount;
+    item.push(addTuskResult);
+    return item;
   }
 )
 
-tascsMoreTwoHours.forEach(
+.forEach(
   function(item) {
     tableTask = `<td>Task name: ${item[0]}.</td>`;
     tableDuration = `<td>Taks duration: ${item[1]} hours.</td>`;
@@ -69,3 +60,5 @@ tascsMoreTwoHours.forEach(
 )
 
  
+
+
