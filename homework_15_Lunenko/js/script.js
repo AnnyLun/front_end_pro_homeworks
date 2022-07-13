@@ -26,8 +26,8 @@ return Object.assign (obj1, obj2);
 }
 console.log(assignObjects(object1, object2));
 
-function assignObjects(obj1, obj2) {
-return Object.assign (obj1, obj2);
-}
+// function assignObjects(obj1, obj2) {
+// return Object.assign (obj1, obj2);
+// }
 
-console.log(assignObjects(object3, object4));
+// console.log(assignObjects(object3, object4));

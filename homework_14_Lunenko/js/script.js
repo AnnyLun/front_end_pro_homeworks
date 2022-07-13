@@ -11,37 +11,34 @@
 //   k: 23,
 //   p: 13
 // }
+obj = {
+  x: 10,
+  y: 20,
+  inner: {
+      x: 20,
+      z: 30,
+  },
+  foo2: {
+      k: 23,
+      p: 13,
+  },
+};
 
-obj = { 
-  x: 10, 
-  y: 20, 
-  inner: { 
-    x: 20, 
-    z: 30 }, 
-    foo2: { 
-      k: 23, 
-      p: 13 
-      } 
-    } 
-       
- 
-    function convert (object) {
-  debugger
+function convert(object) {
+  debugger;
   let newObj = {};
   for (let key in object) {
-    if (typeof object[key] === "object"){
-     let newObjKey  = convert(object[key]);
-        for(let key2 in newObjKey) {
-          newObj[key2] = newObjKey[key2]
-        }
+      if (typeof object[key] === "object") {
+          let newObjKey = convert(object[key]);
+          for (let key2 in newObjKey) {
+            newObj[key2] = newObjKey[key2];
+          }
+      } else {
+          newObj[key] = object[key];
       }
-      else {
-        newObj[key] = object[key]
-      }
-    }
-  
-return newObj;
+  }
+
+  return newObj;
 }
 console.log(convert(obj));
-
    
