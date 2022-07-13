@@ -76,11 +76,14 @@ function Product(category, type, price) {
 }
 Product.prototype.render = function () {
     // debugger
-    return `<tr>
+    return `
+	<tbody>
+	<tr>
 			<td><img src="images/${this.category}/${this.type}.svg" alt="${this.type}" width="50" height="50"></td>
 			<td>${this.type}</td>
 			<td>${this.price} USD</td>
 			</tr>
+	</tbody>
 			`
 };
 
@@ -108,7 +111,19 @@ objMap(obj1, obj2, obj3);
 
 let concatArr = obj1.concat(obj2, obj3);
 
-concatArr.forEach(function (item) {
-    document.write(`<table>${item.render()}</table>`);
+concatArr.forEach(
+	function (item) {
+    document.write(`<table>
+	<thead>
+		<tr>
+			<th>Image</th>
+			<th>Name</th>
+			<th>Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		${item.render()}</table>
+	</tbody>
+`);
 });
 
