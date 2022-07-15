@@ -67,7 +67,7 @@ let cosmeticsProducts = [
 		price: 300,
 	}
 ];
-
+// debugger
 function Product(category, type, price) {
     // debugger
     this.category = category;
@@ -87,43 +87,45 @@ Product.prototype.render = function () {
 			`
 };
 
-let obj1 = kitchenProducts.map(function (item) {
+let obj1 = kitchenProducts.map(
+	function (item) {
     // debugger
     return new Product("kitchen", item.type, item.price);
 });
 
-let obj2 = devicesProducts.map(function (item) {
+let obj2 = devicesProducts.map(
+	function (item) {
     // debugger
     return new Product("devices", item.type, item.price);
 });
 
-let obj3 = cosmeticsProducts.map(function (item) {
+let obj3 = cosmeticsProducts.map(
+	function (item) {
     // debugger
     return new Product("cosmetics", item.type, item.price);
 });
 
-function objMap(item) {
-    item.map(function (item) {
-        return item;
-    });
-}
-objMap(obj1, obj2, obj3);
 
 let concatArr = obj1.concat(obj2, obj3);
-
-concatArr.forEach(
+let result = concatArr.map(
 	function (item) {
-    document.write(`<table>
-	<thead>
-		<tr>
-			<th>Image</th>
-			<th>Name</th>
-			<th>Price</th>
-		</tr>
-	</thead>
+	 return item.render();
+   })
+   .join("");
+   
+   document.write(`
+	<table>
+	 <thead>
+	  <tr>
+	   <th>Image</th>
+	   <th>Name</th>
+	   <th>Price</th>
+	  </tr>
+	 </thead>
 	<tbody>
-		${item.render()}</table>
-	</tbody>
-`);
-});
+	${result}</table>
+   </tbody>
+   `);
+
+
 
