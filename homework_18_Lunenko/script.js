@@ -117,11 +117,11 @@ class User {
     render() {
         document.write(`<div class = "main">
 		<div class = "table">
-			<div>Name:${this.name}</div> 
-			<div> Age:${this.age}</div> 
+			<div>Name:<b>${this.name}</b></div> 
+			<div> Age:<b>${this.age}</b></div> 
 				<div class = "person-img">
 				<div><img src = "${this.img}" alt = "${this.img}" width = 100px> </div>
-				<div class = "role-img"><img src = "${this.roleImg}" width = 50px alt = "${this.roleImg}">${this.role}</div>
+				<div class = "role-img"><img src = "${this.roleImg}" width = 50px alt = "${this.roleImg}"><b>${this.role}</b></div>
 				</div>
 		</div>
 		</div>`);
@@ -144,7 +144,7 @@ class Student extends User {
         document.write(`
 		<div class = "courses">
 		<div>${studentTitle}</div>
-		<div>${studentMark}</div>
+		<div><div class = "color-mark">${studentMark}</div></div>
 		</div>
 		`);
     }
@@ -163,9 +163,15 @@ class Admin extends User {
         document.write(`
 		<div class = "courses">
 			<div class = "admin-courses">
-			<div>Title:${adminTitle}</div>
-			<div>Admin's score: ${adminScore}</div>
-			<div>Lector:${adminLector}</div>
+			<div class = "icons">
+				<div>Title:</div><div class = "color-mark">${adminTitle}</div>
+			</div>
+			<div class = "icons">
+				<div>Admin's score:</div><div class = "color-mark">${adminScore}</div>
+			</div>
+			<div class = "icons">
+				<div>Lector</div><div class = "color-mark">${adminLector}</div>
+			</div>
 			</div>
 		</div>
 		`);
@@ -183,12 +189,18 @@ class Lector extends User {
         super.renderCourses();
         document.write(`
 			<div class = "courses">
-			<div class = "admin-courses">
-				<div>Title:${lectorTitle}</div>
-				<div>Lector's score:${lectorScore}</div>
-				<div>Average student's score:${studentsScore}</div>
-				</div>
+				<div class = "admin-courses">
+			<div class = "icons">
+				<div>Title:</div><div class = "color-mark">${lectorTitle}</div>
 			</div>
+			<div class = "icons">
+				<div>Lector's score:</div><div class = "color-mark">${lectorScore}</div>
+			</div>
+			<div class = "icons">
+				<div>Average student's score</div><div class = "color-mark">${studentsScore}</div>
+			</div>
+			</div>
+		</div>
 			`);
     }
 }
