@@ -353,3 +353,4 @@ function getLector(lector) {
         }
     }
 }
+
