@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HW_21_DOM</title>
+    
+</head>
+<body>
+   <main>
+    <style>
+        * {
+            font-size: 25px;
+            font-family:'Gill Sans';
+            margin: 20px;
+        }
+        .square{
+            width: 300px;
+            height: 300px;
+        }
+        .rectangle {
+            width: 0;
+            height: 0;
+            background-color: transparent;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 300px solid;
+        
+        }
+        .circle {
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+        <label for="figureType">Choose the figure:
+        <select name="figureType" id="figureType">Pls choose the figure:
+            <option value="">Select One …</option>
+            <option value="square">Square</option>
+            <option value="rectangle">Rectangle</option>
+            <option value="circle">Circle</option>
+        </select>
+    </label>
+        <label id = "colorVal">Figure color:</label>
+        <input type="color" id="figureColor" name="Figure">
+        <div></div>
+   </main> 
+   <script src="js/script.js"></script>
+</body>
+</html>
