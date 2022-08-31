@@ -17,6 +17,7 @@ let max;
 
 getFirstKey.forEach((data) => console.log(data));
 const getMoney = (userData, bankData) => {
+    debugger
     getCurrencyType = confirm("Посмотреть баланс на карте?");
     if (getCurrencyType === true) {
         fetch("userData.json").then((resolve) => {
