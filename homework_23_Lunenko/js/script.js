@@ -17,7 +17,6 @@ let max;
 
 getFirstKey.forEach((data) => console.log(data));
 const getMoney = (userData, bankData) => {
-    debugger
     getCurrencyType = confirm("Посмотреть баланс на карте?");
     if (getCurrencyType === true) {
         fetch("userData.json").then((resolve) => {
@@ -72,10 +71,10 @@ getMoney(userData, bankData);
 
 function getCurrency(item) {
     do {
-        getPrompt = prompt(`Введите название валюты в формате ${getFirstKey.join(", ")}`);
+        getPromptCurrency = prompt(`Введите название валюты в формате ${getFirstKey.join(", ")}`);
         for (i = 0; i <= item.length; i++) {
-            if (getPrompt === item[i]) {
-                currencyName = getPrompt;
+            if (getPromptCurrency === item[i]) {
+                currencyName = getPromptCurrency;
             }
         }
     } while (getPromptCurrency !== currencyName);
@@ -123,7 +122,6 @@ function getItemValue(obj) {
 }
 
 function getUserName(item) {
-    debugger;
     for (let key in item) {
         itemNameSecond = key;
         itemValueSecond = item[key];

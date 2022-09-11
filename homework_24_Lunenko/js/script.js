@@ -1,50 +1,117 @@
-let input = document.createElement("input");
-let button = document.createElement("button");
-let div = document.createElement("div");
+const button = document.createElement("button");
+const form = document.querySelector("#form");
+const select = document.getElementById("select");
+const inputCheckbox = document.querySelector("#checkbox");
+const favourite = form.querySelector("input[name=checkbox]").checked;
 
-input.placeholder = "Type username here..";
-document.body.append(input);
-document.body.append(button);
-document.body.append(div);
-
-input.classList.add("input");
-button.classList.add("button");
-
-button.innerHTML = "Найти";
-
-const API = "https://api.github.com/users/"
-let path;
-    button.addEventListener("click", async function(e) {
-        e.preventDefault();
-        path = input.value
-        controller(`${path}`); 
-    })
-
-const controller = async (path, method = "GET") => {
-	let URL = API + path;
-    let option = {
-		method,
-		headers: {
-			"content-type": "application/json",
-		}
-	};
-        try{
-            GET
-        } catch (err) {
-            console.log(`This is ${err}`);
-        } finally {
-            let request = await fetch (URL, option); 
-            let response = await request.json();
-            getResponse (response);
-        }
-}
-function getResponse (obj){
-    for (let key in obj){
-        div.innerHTML = `
-        <img src = "${obj.avatar_url}" alt = "Avatar"/>
-        <p>Kоличество репозиториев: ${obj.public_repos}</p>
-        <p>Kоличество фолловеров: ${obj.followers}</p>
-        <p>Kоличество наблюдаемых: ${obj.following}</p>
-    `
+const API = "https://6310f45a19eb631f9d6a2a39.mockapi.io";
+let controller = async (path, method = "GET", body) => {
+    URL = `${API}${path}`;
+    let params = {
+        method,
+        headers: {
+            "content-type": "application/json",
+        },
+    };
+    if (body) {
+        params.body = JSON.stringify(body);
     }
-}  
+    let request = await fetch(URL, params);
+    let response = await request.json();
+    return response;
+};
+
+async function option(item) {
+    let options = await controller(item);
+    options.forEach((obj) => {
+        let getobj = obj.name;
+        let option = document.createElement("option");
+        option.innerText = getobj;
+        select.append(option);
+    });
+}
+option("/universes");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const fullname = form.querySelector("#fullname").value;
+    const option = form.querySelector("select").value;
+    const heroes = await controller("/heroes");
+    let findHero = heroes.find((elem) => fullname === elem.name);
+    if (findHero) {
+        console.log("Hero already exist!");
+        let makeHeroTable = new Hero(findHero);
+        makeHeroTable.render();
+    } else {
+        console.log("User not exist!");
+        const body = {
+            name: fullname,
+            comics: option,
+            favourite,
+        };
+        const response = await controller("/heroes", "POST", body);
+        if (response) {
+            let makeNewHeroTable = new Hero(response);
+            makeNewHeroTable.render();
+        }
+    }
+});
+
+class Hero {
+    constructor(objHero) {
+        for (let key in objHero) {
+            this[key] = objHero[key];
+        }
+    }
+
+    render() {
+        const tr = document.createElement("tr");
+        const heroInfo = document.querySelector("#heroInfo");
+        const deleteButton = document.createElement("button");
+        const td1 = document.createElement("td");
+        const td2 = document.createElement("td");
+        const td3 = document.createElement("td");
+        const td = document.createElement("td");
+        const table = document.createElement("table");
+        console.log(td3.innerText);
+        tr.append(td1);
+        td1.innerText = `${this.name}`;
+        tr.append(td2);
+        td2.innerText = `${this.comics}`;
+        tr.append(td3);
+        td3.innerText = `${this.favourite}`;
+
+        deleteButton.addEventListener("click", async () => {
+            const deleteBut = await controller(`/heroes/${this.id}`, "DELETE");
+            if (deleteBut.id) {
+                return (table.outerHTML = " ");
+            }
+        });
+        table.append(tr);
+        heroInfo.append(table);
+        if (table.childElementCount === 1) {
+            tr.append(td);
+            td.append(deleteButton);
+            deleteButton.innerText = "Delete";
+        }
+        inputCheckbox.addEventListener("click", async () => {
+            const favourite = form.querySelector("input[name=checkbox]").checked;
+            const body = {
+                favourite,
+            };
+            const response = await controller(`/heroes/${this.id}`, "PUT", body);
+            if (td3) {
+                return (td3.innerText = `${body.favourite}`);
+            }
+        });
+        deleteButton.addEventListener("click", async () => {
+            const deleteBut = await controller(`/heroes/${this.id}`, "DELETE");
+            if (deleteBut.id) {
+                return (table.outerHTML = " ");
+            }
+        });
+    }
+}
+
+button.innerText = "Add Hero";
+form.append(button);

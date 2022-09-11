@@ -7,48 +7,39 @@
 </head>
 <body>
    <style>
-    body {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
-    div {
-        padding: 10px;
-        background-color: rgba(241, 205, 86, 0.97);
-        border-radius: 10px;
-        width: 40%;
-        margin: 10px;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
-   .input {
-        width: 200px;
-        height: 20px;
-        border-radius: 10px;
-        border: 1px solid rgba(31, 31, 31, 0.871);
-        margin: 10px;
-        padding: 5px;
-        top: 0;
-    }
-    .button {
-        width: 100px;
-        padding: 5px;
-        border: 1px solid rgba(31, 31, 31, 0.871);
-        margin: 10px;
-        border-radius: 5px;
-        font-family: 'Times New Roman';
-        font-size: 15px;
-        color: black;
-        background-color: antiquewhite;
-        cursor: pointer;
-    }
-    img {
-        width: 60%;
-    }
+td, th {
+    border: 1px solid #000;
+    width: 80px;
+}
    </style> 
+   <form id="form">
+    <label>Name Surname
+        <input type="text" name="fullname" id="fullname">
+    </label>
+    <label> Comics
+        <select id="select">
+        </select>
+    </label>
+    <label for="checkbox" id="checkbox">Favourite
+    <input type="checkbox" id="checkbox" name ="checkbox">
+    </label>
+    
+   </form>
+   <div id="heroInfo" class="user__info">
+    <h2>Hero Info</h2>
+    <table class="header">
+        <thead>
+            <tr>
+                <th>Name Surname</th>
+                <th>Comics</th>
+                <th>Favourite</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+    </table>
+
+    
+</div>
    <script src="js/script.js"></script>
 </body>
 </html>
